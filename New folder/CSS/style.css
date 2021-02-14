@@ -1,0 +1,41 @@
+#canvas{
+	background-color: rgb(255,255,230);
+	box-shadow: 25px 45px 50px black;
+	border-radius: 5%;
+
+	
+}
+body{
+	background-color: #D5D8DC ;
+	text-align: center;
+}
+.title{
+	margin: 0;
+	font-size: 100px;
+	color:#FDFEFE;
+	font-family: 'Chicle', cursive;
+}
+
+.scoreBoard{
+	font-size: 30px;
+	color:#FDFEFE ;
+	font-family: 'Chicle', cursive;
+	margin-bottom: 5px;
+
+	
+}
+
+h3{
+	display: inline-block;
+	margin-bottom: 0;
+	margin-right: 100px;
+}
+
+img{
+	width:35px;
+}
+
+img:hover{
+	width:37px;
+	margin-left:-2px;
+}
