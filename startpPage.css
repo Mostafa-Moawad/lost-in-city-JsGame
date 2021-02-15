@@ -14,7 +14,7 @@ body {
 }
 
 #main-dev {
-  width:0px;
+  width:50%;
   height:0px;
   border-left: 300px solid transparent;
   border-right:300px solid transparent;
@@ -23,7 +23,7 @@ body {
   position:relative;
   margin:auto;
   top:5px;
-  left:2px;
+  /* left:2px; */
   
 }
 
