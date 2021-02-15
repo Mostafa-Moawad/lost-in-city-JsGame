@@ -1,34 +1,44 @@
 #canvas{
-	background-color: rgb(255,255,230);
+	/* min-height: 100vh;
+	right: 150px;
+	display: flex;
+	align-items: center;
+	justify-content: center; */
+    background-color: rgb(255,255,230);
 	box-shadow: 25px 45px 50px black;
-	border-radius: 5%;
-
-	
+	border-radius: 5%;  
 }
 body{
-	background-color: #D5D8DC ;
+	min-height: 105vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color:white ;
 	text-align: center;
+	 overflow: hidden;
 }
 .title{
-	margin: 0;
+	margin-top: 0px;
 	font-size: 100px;
 	color:#FDFEFE;
 	font-family: 'Chicle', cursive;
 }
 
 .scoreBoard{
+	/* top: 1px; */
 	font-size: 30px;
 	color:#FDFEFE ;
 	font-family: 'Chicle', cursive;
 	position: absolute;
-
-	
 }
 
 h3{
-	display: inline-block;
-	margin-bottom: 0;
-	margin-right: 100px;
+	 display: inline-block;
+	  margin-right: 100px;
+	  text-align: center;
+	   top:100px;
+	   margin-bottom: 800px;
+	  color: red;
 }
 
 img{
