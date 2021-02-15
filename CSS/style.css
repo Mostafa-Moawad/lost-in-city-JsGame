@@ -9,11 +9,12 @@
 	border-radius: 5%;  
 }
 body{
-	min-height: 105vh;
+	margin-right: 200px;
+	min-height: 100vh;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-color:white ;
+	background-color:gray ;
 	text-align: center;
 	 overflow: hidden;
 }
@@ -26,21 +27,24 @@ body{
 
 .scoreBoard{
 	/* top: 1px; */
-	font-size: 30px;
+	font-size: 35px;
 	color:#FDFEFE ;
 	font-family: 'Chicle', cursive;
 	position: absolute;
 }
 
 h3{
-	 display: inline-block;
-	  margin-right: 100px;
-	  text-align: center;
-	   top:100px;
-	   margin-bottom: 800px;
-	  color: red;
+	display: block;
+	margin-right: 1050px;
+	  color: white;
 }
-
+#back{
+    margin-bottom: 400px;
+	margin-right: 100px;
+}
+#back:hover{
+	transform: scale(1.2);
+}
 img{
 	width:35px;
 }

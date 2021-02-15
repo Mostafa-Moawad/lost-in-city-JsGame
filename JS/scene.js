@@ -21,9 +21,7 @@ const scene = {
 				ctx.drawImage(middle,0,0,500,200,0,i * 300,900,100);
 						
 			};
-
 		}
-
 	},
 	
 	water:{
@@ -40,12 +38,12 @@ const scene = {
 				speed:2.5,
 				speedFactor: 1.5,
 				'log count': 3,
-				'croc count': 2,
+				'firstLaneObj count': 2,
 				space: 300,
 				logs:[],
 				logImg:'log1',
-				crocImg: 'croc1',
-				crocs:[]
+				firstLaneObjImg: 'firstLaneObj1',
+				firstLaneObjs:[]
 			},
 			{	
 				name:'row2',
@@ -54,12 +52,12 @@ const scene = {
 				speed:-3,
 				speedFactor: -1.75,
 				'log count': 2,
-				'croc count': 3,
+				'firstLaneObj count': 3,
 				space:275,
 				logs:[],
 				logImg:'log1',
-				crocImg:'croc2',
-				crocs:[]
+				firstLaneObjImg:'firstLaneObj2',
+				firstLaneObjs:[]
 
 			},
 			{
@@ -69,12 +67,12 @@ const scene = {
 				speed:3,
 				speedFactor: 1.75,
 				'log count': 2,
-				'croc count': 1,
+				'firstLaneObj count': 1,
 				space:375, 
 				logs:[],
 				logImg:'log1',
-				crocImg:'croc1',
-				crocs:[]
+				firstLaneObjImg:'firstLaneObj1',
+				firstLaneObjs:[]
 			},
 			{
 				name:'row4Water',
@@ -83,12 +81,12 @@ const scene = {
 				speed:-2,
 				speedFactor: -1.25,
 				'log count': 1,
-				'croc count': 2,
+				'firstLaneObj count': 2,
 				space:250, 
 				logs:[],
 				logImg:'log1',
-				crocImg:'croc2',
-				crocs:[]
+				firstLaneObjImg:'firstLaneObj2',
+				firstLaneObjs:[]
 			},
 			{
 				name:'row5',
@@ -97,12 +95,12 @@ const scene = {
 				speed:3,
 				speedFactor: 1.75,
 				'log count': 2,
-				'croc count': 2,
+				'firstLaneObj count': 2,
 				space:270, 
 				logs:[],
 				logImg:'log1',
-				crocImg:'croc1',
-				crocs:[]
+				firstLaneObjImg:'firstLaneObj1',
+				firstLaneObjs:[]
 			}
 		],
 		//Draw Water
@@ -116,16 +114,16 @@ const scene = {
 				for(let j = 0, lc = this.rows[i]['log count'] ; j < lc; j ++){
 					const newLog = new Log(this.rows[i].x + (j * this.rows[i].space) , this.rows[i].y, this.rows[i].speed, this.rows[i].name, this.rows[i].logImg, this.rows[i].speedFactor);
 					this.rows[i].logs.push(newLog);
-					this.rows[i].logs[j].drawVehicle();
+					this.rows[i].logs[j].drawMovingObj();
 				};
 			};
 		},
-		crocFactory(){
+		firstLaneObjFactory(){
 			for(let i = 0, len = this.rows.length; i < len ; i ++){
-				for(let j = 0, cc = this.rows[i]['croc count']; j < cc; j ++){
-					const newCroc = new Croc(this.rows[i].x + (this.rows[i]['log count'] * this.rows[i].space) + (j * 180), this.rows[i].y, this.rows[i].speed, this.rows[i].name, this.rows[i].crocImg, this.rows[i].speedFactor)
-					this.rows[i].crocs.push(newCroc);
-					this.rows[i].crocs[j].drawVehicle();
+				for(let j = 0, cc = this.rows[i]['firstLaneObj count']; j < cc; j ++){
+					const newfirstLaneObj = new firstLaneObj(this.rows[i].x + (this.rows[i]['log count'] * this.rows[i].space) + (j * 180), this.rows[i].y, this.rows[i].speed, this.rows[i].name, this.rows[i].firstLaneObjImg, this.rows[i].speedFactor)
+					this.rows[i].firstLaneObjs.push(newfirstLaneObj);
+					this.rows[i].firstLaneObjs[j].drawMovingObj();
 				};
 			};
 		}
@@ -141,10 +139,10 @@ const scene = {
 				y:560,
 				speed:1,
 				speedFactor: .75,
-				'vehicle count': 4,
+				'MovingObj count': 4,
 				space: 400,
-				vehicleImg:['car2', 'car3'],
-				vehicles:[]
+				MovingObjImg:['car2', 'car3'],
+				MovingObjs:[]
 			},
 			{	
 				name:'row2',
@@ -152,10 +150,10 @@ const scene = {
 				y:520,
 				speed:-2,
 				speedFactor: -1.25,
-				'vehicle count': 3,
+				'MovingObj count': 3,
 				space: 400,
-				vehicleImg:['car1', 'car4', 'car5'],
-				vehicles:[]
+				MovingObjImg:['car1', 'car4', 'car5'],
+				MovingObjs:[]
 			},
 			{
 				name:'row3',
@@ -163,10 +161,10 @@ const scene = {
 				y:480,
 				speed:2.5,
 				speedFactor: 1.5,
-				'vehicle count': 3,
+				'MovingObj count': 3,
 				space: 350,
-				vehicleImg:['car2', 'car3'],
-				vehicles:[]
+				MovingObjImg:['car2', 'car3'],
+				MovingObjs:[]
 			},
 			{
 				name: 'row4',
@@ -174,10 +172,10 @@ const scene = {
 				y: 440,
 				speed: 1.5,
 				speedFactor: 1,
-				'vehicle count':5,
+				'MovingObj count':5,
 				space:200,
-				vehicleImg:['car2', 'car3'],
-				vehicles:[]
+				MovingObjImg:['car2', 'car3'],
+				MovingObjs:[]
 			},
 			{
 				name: 'row5',
@@ -185,10 +183,10 @@ const scene = {
 				y: 400,
 				speed: -2,
 				speedFactor: -1.25,
-				'vehicle count':3,
+				'MovingObj count':3,
 				space: 300,
-				vehicleImg:['car1', 'car4', 'car5'],
-				vehicles:[]
+				MovingObjImg:['car1', 'car4', 'car5'],
+				MovingObjs:[]
 			}
 		],
 		//Draw Street
@@ -196,14 +194,14 @@ const scene = {
 		
 			ctx.drawImage(drawfirstLane[g].source,drawfirstLane[g].sx,drawfirstLane[g].sy,drawfirstLane[g].sw,drawfirstLane[g].sh,0,400,900,200);
 		},
-		//Generate Vehicles And Push To Each Row
-		vehicleFactory(){
+		//Generate MovingObjs And Push To Each Row
+		MovingObjFactory(){
 			for(let i = 0, len = this.rows.length; i < len ; i ++){
-				for(let j = 0, vc = this.rows[i]['vehicle count']; j < vc; j++){
+				for(let j = 0, vc = this.rows[i]['MovingObj count']; j < vc; j++){
 					//(x,y,l,h,color,speed, row name)
-					const newVehicle = new Vehicle(this.rows[i].x + (this.rows[i].space * j), this.rows[i].y,this.rows[i].speed, this.rows[i].name, this.rows[i].vehicleImg[Math.floor( Math.random() * this.rows[i].vehicleImg.length)], this.rows[i].speedFactor);
-					this.rows[i].vehicles.push(newVehicle);
-					this.rows[i].vehicles[j].drawVehicle();
+					const newMovingObj = new MovingObj(this.rows[i].x + (this.rows[i].space * j), this.rows[i].y,this.rows[i].speed, this.rows[i].name, this.rows[i].MovingObjImg[Math.floor( Math.random() * this.rows[i].MovingObjImg.length)], this.rows[i].speedFactor);
+					this.rows[i].MovingObjs.push(newMovingObj);
+					this.rows[i].MovingObjs[j].drawMovingObj();
 				};
 			};
 		}

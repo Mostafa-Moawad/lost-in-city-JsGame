@@ -110,11 +110,7 @@ lava.src = "images/lava.png"
 const flame= new Image();
 flame.src = "images/flame.jpg"
 
-
 let frame = 0;
-
-
-
 
 const drawObj = [
 	{

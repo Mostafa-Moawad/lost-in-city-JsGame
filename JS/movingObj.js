@@ -1,5 +1,5 @@
-//Make A Vehicle Class
-class Vehicle {
+//Make A MovingObj Class
+class MovingObj {
 		constructor(x, y, speed, row, img, speedFactor){
 			this.x = x;
 			this.y = y;
@@ -21,9 +21,7 @@ class Vehicle {
 			}
 
 		}
-		drawVehicle(){
-			
-
+		drawMovingObj(){
 			switch(this.img){
 				case 'car1':
 					if(frame % this.randomise === 0 && flag){
@@ -86,7 +84,7 @@ class Vehicle {
 					ctx.drawImage(drawLog[k].source, drawLog[k].sx  , drawLog[k].sy, drawLog[k].sw, drawLog[k].sh, this.x, this.y, this.w, this.h);
 					//ctx.drawImage(log, this.sx, this.sy, this.sw, this.sh, this.x, this.y, this.w, this.h);
 					break;
-				case 'croc1':
+				case 'firstLaneObj1':
 					if(frame % this.randomise === 0){
 						if(this.counter >= 2){
 							this.counter = 0;
@@ -99,7 +97,7 @@ class Vehicle {
 					ctx.drawImage(drawobject2[0+j].source,drawobject2[0+j].sx + (displacement2 * this.counter), drawobject2[0+j].sy, drawobject2[0+j].sw, drawobject2[0+j].sh, this.x, this.y, this.w, this.h);
 					
 					break;
-				case 'croc2':
+				case 'firstLaneObj2':
 					if(frame % this.randomise === 0){
 						if(this.counter >= 2){
 							this.counter = 0;
@@ -121,11 +119,11 @@ class Vehicle {
 
 		}
 		move(){	
-			//Conditionals to bring back vehicles on canvas
+			//Conditionals to bring back MovingObjs on canvas
 			if(this.x > (canvas.width + 150)){
 				this.x = -150;
 			}
-			//If vehicle is moving in Reverse
+			//If MovingObj is moving in Reverse
 			else if(this.x < -150 && (this.row === 'row2' || this.row === 'row5' || this.row === 'row4Water' )){
 
 				this.x = canvas.width + 150 ; 
@@ -138,7 +136,7 @@ class Vehicle {
 
 			this.x += this.speed;
 			
-			this.drawVehicle();
+			this.drawMovingObj();
 		}
 		//Detect Collision To player
 		detectCollision(){

@@ -7,13 +7,13 @@ const player = {
 	life: 5,
 	//The Value to increment/Decrement X,Y when Moving player
 	speed: 43,
-	//The x position of the playerger sprite in the sheet
+	//The x position of the player sprite in the sheet
 	sx:0,
-	//The y position of the frogger sprite in the sheet 
+	//The y position of the Player sprite in the sheet 
 	sy:225,
-	//The width of the frogger sprite in the sheet
+	//The width of the Playerger sprite in the sheet
 	sw:65,
-	//The height of the frogger sprite in the sheet
+	//The height of the Player sprite in the sheet
 	sh:75,
 	//Dead or alive
 	alive: true,
@@ -26,8 +26,8 @@ const player = {
 	source: drawCharacter[m].source,
 
 	//Function to draw body
-	drawFrog(){ 	
-		ctx.drawImage(this.source, this.sx, this.sy, this.sw, this.sh, this.x - 20 /*this.x*/, this.y - 20/* this.y*/, this.w, this.h);
+	drawPlayer(){ 	
+		ctx.drawImage(this.source, this.sx, this.sy, this.sw, this.sh, this.x - 20 , this.y - 20, this.w, this.h);
 	
 	},
 	decrementLives(){
