@@ -28,6 +28,7 @@ body {
 }
 
 .sub-dev {
+  display: inherit;
   position:relative;
   bottom:30px;
   right:150px;
@@ -71,7 +72,6 @@ body {
 a{
       color: beige;
       text-decoration: none;
-      
 }
 
 #about{
@@ -101,7 +101,7 @@ body, html {
 }
     
 .bg-image {
-      background-image: url("new-img/bg.jpg");
+      background-image: url("./new-img/bg.jpg");
       filter: blur(4px);
       -webkit-filter: blur(4px);
       height: 100%; 
