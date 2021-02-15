@@ -16,7 +16,7 @@ Simple game using vanilla javascript, HTML and CSS.
 
 
 * Score and speed increases every round.
-* Player has 5 lives the Game-over.
+* Player has 5 lives then it's Game-over.
 
 
 ![image](/scene.png)
