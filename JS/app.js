@@ -11,21 +11,21 @@ const thePlayerGame = {
 	gameOver(){
 		control = false;
 		ctx.font = '100px Arial';
-		ctx.fillStyle = 'rgb(255,0,0)'
+		ctx.fillStyle = '#ffffff';
 		ctx.fillText('Game Over',(canvas.width/2)-250, canvas.height/2);
 	},
 	initialize() {
 		// remove old things from array	
-		// loop set street vehicles length to 0
-		// loop set water vehicles (logs) lenght to 0
-		// loop set crocs length to 0
+		// loop set street MovingObjs length to 0
+		// loop set water MovingObjs (logs) lenght to 0
+		// loop set firstLaneObjs length to 0
 		for(let i = 0, r = scene.street.rows.length; i < r ; i ++){
-			scene.street.rows[i].vehicles.length = 0;
+			scene.street.rows[i].MovingObjs.length = 0;
 		};
 
 		for(let i = 0, r = scene.water.rows.length; i < r ; i ++){
 			scene.water.rows[i].logs.length = 0;
-			scene.water.rows[i].crocs.length = 0;
+			scene.water.rows[i].firstLaneObjs.length = 0;
 		};	
 
 		// set everything back to the way it is at the beginning
@@ -35,10 +35,10 @@ const thePlayerGame = {
 		player.score = 0;	
 		this.round = 1;
 		scene.drawScene();
-		player.drawFrog();
-		scene.street.vehicleFactory()
+		player.drawPlayer();
+		scene.street.MovingObjFactory()
 		scene.water.logFactory()
-		scene.water.crocFactory()
+		scene.water.firstLaneObjFactory()
 		//this.generateBug()
 
 		lives.innerText = 'Lives: ' + player.life ;
@@ -126,7 +126,7 @@ document.addEventListener('keydown',(e)=>{
 })
 
 //Make A log Class
-class Log extends Vehicle{
+class Log extends MovingObj{
 	constructor(x, y, speed, row, img,  speedFactor){
 		super(x, y, speed, row, img,  speedFactor);
 		this.w = 180;
@@ -137,8 +137,8 @@ class Log extends Vehicle{
 	}
 }
 
-//Make A Crocodile Class 
-class Croc extends Vehicle{
+//Make A firstLaneObjodile Class 
+class firstLaneObj extends MovingObj{
 	constructor(x, y, speed, row, img,  speedFactor){
 		super(x, y, speed, row, img,  speedFactor);
 		this.sx = 127;
@@ -151,7 +151,7 @@ const animate = ()=>{
 	//Draw Scene
 	scene.drawScene();
 	//Let's assume player is not on log
-	let frogOnLog = false;
+	let playerOnLog = false;
 
 	// Draw Each Log 
 	for(let i = 0, r = scene.water.rows.length; i < r ; i ++){
@@ -163,21 +163,21 @@ const animate = ()=>{
 			//Detect Collision For Each Log
 			if(scene.water.rows[i].logs[j].detectCollision() === true && player.alive === true){
 				//player is on log, set to true.
-				frogOnLog = true;
+				playerOnLog = true;
 				//Attach the player to the log
 				thePlayerGame.attachLog(scene.water.rows[i].logs[j].speed);
 			};
 		};
 
-		for(let j = 0, v = scene.water.rows[i].crocs.length ; j < v ; j ++){
-			//Move each croc
-			scene.water.rows[i].crocs[j].move();
+		for(let j = 0, v = scene.water.rows[i].firstLaneObjs.length ; j < v ; j ++){
+			//Move each firstLaneObj
+			scene.water.rows[i].firstLaneObjs[j].move();
 
-			if(scene.water.rows[i].crocs[j].detectCollision() === true && player.alive === true){
+			if(scene.water.rows[i].firstLaneObjs[j].detectCollision() === true && player.alive === true){
 				//player is on log, set to true.
-				frogOnLog = true;
+				playerOnLog = true;
 				//Attach the player to the log
-				thePlayerGame.attachLog(scene.water.rows[i].crocs[j].speed);
+				thePlayerGame.attachLog(scene.water.rows[i].firstLaneObjs[j].speed);
 			};
 			
 		};	
@@ -186,24 +186,24 @@ const animate = ()=>{
 
 	// If player is in water area, we only need to check if on log to determine safety. Anything other than logs resets game.
 	if (player.y > 100 && player.y < 300){
-		if(frogOnLog === false && player.alive === true){
+		if(playerOnLog === false && player.alive === true){
 			player.die();
 		}
 	}
 	
 	//Draw Each Car
 	for(let i = 0, r = scene.street.rows.length; i < r ; i ++){
-		for(let j = 0, v = scene.street.rows[i].vehicles.length ; j < v ; j ++){
+		for(let j = 0, v = scene.street.rows[i].MovingObjs.length ; j < v ; j ++){
 			//Move Each Car
-			scene.street.rows[i].vehicles[j].move();
+			scene.street.rows[i].MovingObjs[j].move();
 			//Detect Collision For each Car
-			if(scene.street.rows[i].vehicles[j].detectCollision() === true && player.alive === true){
+			if(scene.street.rows[i].MovingObjs[j].detectCollision() === true && player.alive === true){
 				player.die();
 			};
 		};
 	};
 
-	player.drawFrog();
+	player.drawPlayer();
 
 	lives.innerText = 'Lives: ' + player.life ;
 	score.innerText = 'Score: ' + player.score;
