@@ -1,4 +1,4 @@
-pi//Global Variables
+//Global Variables
 let level = localStorage.getItem('level');
 let selectedChar = localStorage.getItem('selectedChar');
 
