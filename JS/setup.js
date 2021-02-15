@@ -16,15 +16,9 @@ let control = true;
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 //Image Object for Sprites
-const sprites = new Image();
-sprites.src = 'images/spritemap.png';
-const sprites2 = new Image();
-sprites2.src = 'images/croc.png';
-const sprites3 = new Image();
-sprites3.src = 'images/bug.png';
 
 const waterImg= new Image();
-waterImg.src = "images/images/background.png"
+waterImg.src = "images/background.png"
 
 const sand= new Image();
 sand.src = "images/sand.png"

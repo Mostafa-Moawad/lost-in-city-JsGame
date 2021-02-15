@@ -1,12 +1,9 @@
 
-//Player Selection
-// document.getElementById('player-selected').innerHTML = 'Choose your Player!';
 // Select player
 var selectedChar = false;
 function selectChar(char) {
-    // console.log(char);
-    // selectedChar = char;
-    switch (char) { // Display Selected Char's Name.
+
+    switch (char) { 
         case 'char1':
             document.getElementById('player-selected').innerHTML = 'Rhino';
             selectedChar = "char1";
