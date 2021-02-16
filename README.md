@@ -24,7 +24,7 @@ Simple game using vanilla javascript, HTML and CSS.
 
 ## Live Demo
 
- [Lost In City Live Demo](https://glacial-sands-21866.herokuapp.com/home.html)
+ [Lost In City Live Demo](https://lost-in-city.herokuapp.com/)
 
 
 
